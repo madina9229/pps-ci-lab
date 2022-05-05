@@ -1,0 +1,14 @@
+name: Simple Gradle Build
+on:
+  push:
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    env:
+      TERM: dumb
+    steps:
+      - uses: actions/checkout@v2
+      - uses: joschi/setup-jdk@v2.3.0
+        with:
+          java-version: 15
+      - run: ./gradlew check
